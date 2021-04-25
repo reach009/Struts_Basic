@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.maxSize" value="10000000" />
+
+	<package name="helloworld" extends="struts-default">
+
+		<!-- Declare Custom Interceptor -->
+		<interceptors>
+			<interceptor name="myinterceptor"
+				class="com.tutorialspoint.struts2.MyInterceptor" />
+		</interceptors>
+
+		<!-- Calling Actions -->
+		<action name="hello"
+			class="com.tutorialspoint.struts2.HelloWorldAction" method="execute">
+			<!-- Calling interceptors -->
+			<interceptor-ref name="params" />
+			<interceptor-ref name="myinterceptor" />
+			<interceptor-ref name="timer" />
+
+			<result name="success">/HelloWorld.jsp</result>
+			<result name="error">/AccessDenied.jsp</result>
+		</action>
+
+		<action name="upload"
+			class="com.tutorialspoint.struts2.FileUpload">
+			<!-- FileUpload interceptor is a part of the default Stack of interceptors -->
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/jpeg,image/gif</param>
+			</interceptor-ref>
+			<result>/FileUpload.jsp</result>
+			<result name="success">/FileUploadSuccess.jsp</result>
+			<result name="error">/FileUploadError.jsp</result>
+		</action>
+
+		<!-- more actions can be listed here -->
+	</package>
+
+	<!-- more packages can be listed here -->
+</struts>
