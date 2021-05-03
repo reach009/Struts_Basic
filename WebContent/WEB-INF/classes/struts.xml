@@ -55,6 +55,19 @@
 
 		</action>
 
+		<!-- Login Action ## 03 May 2021 ## -->
+
+		<action name="loginAction"
+			class="com.tutorialspoint.struts2.FileUploadAction" method="display">
+			<result name="none">pages/Login.jsp</result>
+		</action>
+		
+		<action name="loginActionResult"
+			class="com.tutorialspoint.struts2.LoginAction" method="execute">
+			<result name="success">pages/LoginSuccess.jsp</result>
+			<result name="error">pages/LoginError.jsp</result>
+		</action>
+
 		<!-- more actions can be listed here -->
 	</package>
 
