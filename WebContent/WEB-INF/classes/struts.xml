@@ -5,9 +5,8 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.multipart.maxSize" value="10000000" />
 
-	<package name="helloworld" extends="struts-default">
+	<package name="default" namespace="/" extends="struts-default">
 
 		<!-- Declare Custom Interceptor -->
 		<interceptors>
@@ -23,20 +22,37 @@
 			<interceptor-ref name="myinterceptor" />
 			<interceptor-ref name="timer" />
 
-			<result name="success">/HelloWorld.jsp</result>
-			<result name="error">/AccessDenied.jsp</result>
+			<result name="success">HelloWorld.jsp</result>
+			<result name="error">AccessDenied.jsp</result>
 		</action>
 
-		<action name="upload"
-			class="com.tutorialspoint.struts2.FileUpload">
-			<!-- FileUpload interceptor is a part of the default Stack of interceptors -->
-			<interceptor-ref name="basicStack" />
+		<action name="fileUploadAction"
+			class="com.tutorialspoint.struts2.FileUploadAction" method="display">
+			<result name="none">pages/FileUpload.jsp</result>
+		</action>
+
+		<action name="resultAction"
+			class="com.tutorialspoint.struts2.FileUploadAction">
+			<interceptor-ref name="exception" />
+			<interceptor-ref name="i18n" />
 			<interceptor-ref name="fileUpload">
-				<param name="allowedTypes">image/jpeg,image/gif</param>
+				<param name="allowedTypes">image/jpeg,image/gif,image/jpg</param>
+				<param name="maximumSize">1e+7</param>
 			</interceptor-ref>
-			<result>/FileUpload.jsp</result>
-			<result name="success">/FileUploadSuccess.jsp</result>
-			<result name="error">/FileUploadError.jsp</result>
+			<interceptor-ref name="params">
+				<param name="excludeParams">dojo\..*,^struts\..*</param>
+			</interceptor-ref>
+			<interceptor-ref name="validation">
+				<param name="excludeMethods">input,back,cancel,browse</param>
+			</interceptor-ref>
+			<interceptor-ref name="workflow">
+				<param name="excludeMethods">input,back,cancel,browse</param>
+			</interceptor-ref>
+
+			<result name="error">pages/FileUploadError.jsp</result>
+			<result name="success">pages/FileUploadResult.jsp</result>
+			<result name="input">pages/FileUpload.jsp</result>
+
 		</action>
 
 		<!-- more actions can be listed here -->
