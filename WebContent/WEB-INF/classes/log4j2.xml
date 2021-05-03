@@ -9,7 +9,7 @@
     <Logger name="com.tutorialspoint.struts2" level="trace" additivity="false">
       <AppenderRef ref="Console"/>
     </Logger>
-    <Root level="info">
+    <Root level="INFO">
       <AppenderRef ref="Console"/>
     </Root>
   </Loggers>

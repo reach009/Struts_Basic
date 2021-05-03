@@ -8,9 +8,9 @@
 </head>
 
 <body>
-	<form action="upload" method="post" enctype="multipart/form-data">
-		<label for="myFile">Upload your file</label> <input type="file"
-			name="myFile" /> <input type="submit" value="Upload" />
-	</form>
+	<s:form action="resultAction" namespace="/" method="post" enctype="multipart/form-data">
+		<s:file label="Select a file to upload" size="40" name="fileUpload" />
+		<s:submit value="submit" name="submit" />
+	</s:form>
 </body>
 </html>
