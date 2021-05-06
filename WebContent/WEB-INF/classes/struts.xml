@@ -73,11 +73,23 @@
 			class="com.tutorialspoint.struts2.Emailer" method="display">
 			<result name="none">pages/Mail/MailForm.jsp</result>
 		</action>
-		
+
 		<action name="emailResult"
 			class="com.tutorialspoint.struts2.Emailer" method="execute">
 			<result name="success">pages/Mail/MailSuccess.jsp</result>
 			<result name="error">pages/Mail/MailError.jsp</result>
+		</action>
+
+		<!-- Employee Action ## 06 May 2021 -->
+		<action name="empAction"
+			class="com.tutorialspoint.struts2.Emailer" method="display">
+			<result name="none">pages/Validation/employee.jsp</result>
+		</action>
+
+		<action name="empResult"
+			class="com.tutorialspoint.struts2.Employee" method="execute">
+			<result name="input">pages/Validation/employee.jsp</result>
+			<result name="success">pages/Validation/success.jsp</result>
 		</action>
 
 		<!-- more actions can be listed here -->
