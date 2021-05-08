@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
 <validators>
 	<field name="name">
 		<field-validator type="requiredstring">
-			<message>
-				The name is required.
-			</message>
+			<message key="error.name.required" />
 		</field-validator>
 	</field>
 
@@ -15,9 +14,7 @@
 		<field-validator type="int">
 			<param name="min">29</param>
 			<param name="max">64</param>
-			<message>
-				Age must be in between 28 and 65
-			</message>
+			<message key="error.age.required" />
 		</field-validator>
 	</field>
 </validators>

@@ -5,6 +5,8 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
+	<!-- Struts2 - Localization, internationalization (i18n) -->
+	<constant name="struts.custom.i18n.resources" value="global" />
 
 	<package name="default" namespace="/" extends="struts-default">
 
@@ -37,7 +39,7 @@
 			<interceptor-ref name="i18n" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">image/jpeg,image/gif,image/jpg</param>
-				<param name="maximumSize">1e+7</param>
+				<param name="maximumSize">100000000000</param>
 			</interceptor-ref>
 			<interceptor-ref name="params">
 				<param name="excludeParams">dojo\..*,^struts\..*</param>
@@ -92,6 +94,17 @@
 			<result name="success">pages/Validation/success.jsp</result>
 		</action>
 
+		<!-- Locale Action ## 08 May 2021 -->
+		<action name="empInfo"
+			class="com.tutorialspoint.struts2.Employee" method="execute">
+			<result name="input">pages/Locale/index.jsp</result>
+			<result name="success">pages/Locale/success.jsp</result>
+		</action>
+
+		<action name="locale" class="com.tutorialspoint.struts2.Locale"
+			method="execute">
+			<result name="success">pages/Locale/index.jsp</result>
+		</action>
 		<!-- more actions can be listed here -->
 	</package>
 
