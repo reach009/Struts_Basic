@@ -105,6 +105,12 @@
 			method="execute">
 			<result name="success">pages/Locale/index.jsp</result>
 		</action>
+
+		<!-- System Action a.k.a Type Conversion ## 08 May 2021 -->
+		<action name="system"
+			class="com.tutorialspoint.struts2.SystemDetails" method="execute">
+			<result name="success">pages/TypeConversion/system.jsp</result>
+		</action>
 		<!-- more actions can be listed here -->
 	</package>
 
