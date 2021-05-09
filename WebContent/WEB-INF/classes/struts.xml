@@ -111,7 +111,20 @@
 			class="com.tutorialspoint.struts2.SystemDetails" method="execute">
 			<result name="success">pages/TypeConversion/system.jsp</result>
 		</action>
-		<!-- more actions can be listed here -->
+
+		<!-- ExceptionExample ## 09 May 2021 -->
+		<action name="exceptionAction"
+			class="com.tutorialspoint.struts2.ExceptionExample" method="display">
+			<result name="none">pages/Exception/index.jsp</result>
+		</action>
+
+		<action name="exceptionTest"
+			class="com.tutorialspoint.struts2.ExceptionExample" method="execute">
+			<exception-mapping
+				exception="java.lang.NullPointerException" result="error" />
+			<result name="success">pages/Exception/helloWorld.jsp</result>
+			<result name="error">pages/Exception/error.jsp</result>
+		</action>
 	</package>
 
 	<!-- more packages can be listed here -->
