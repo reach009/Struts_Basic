@@ -1,8 +1,10 @@
-package com.tutorialspoint.struts2;
+package com.tutorialspoint.struts2.controlTag;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class IfElseAction extends ActionSupport {
+@SuppressWarnings("serial")
+public class Color extends ActionSupport {
+
 	private String color;
 
 	@Override

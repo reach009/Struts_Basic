@@ -128,13 +128,19 @@
 
 		<!-- IfElse tag ## 16 May 2021 -->
 		<action name="colorAction"
-			class="com.tutorialspoint.struts2.IfElseAction" method="display">
+			class="com.tutorialspoint.struts2.controlTag.Color" method="display">
 			<result name="none">pages/ControlTag/color.jsp</result>
 		</action>
 
 		<action name="colorResult"
-			class="com.tutorialspoint.struts2.IfElseAction" method="execute">
+			class="com.tutorialspoint.struts2.controlTag.Color" method="execute">
 			<result name="success">pages/ControlTag/colorResult.jsp</result>
+		</action>
+
+		<!-- Iterate tag ## 16 May 2021 -->
+		<action name="employeeAction"
+			class="com.tutorialspoint.struts2.controlTag.Employee" method="execute">
+			<result name="success">pages/ControlTag/employee.jsp</result>
 		</action>
 	</package>
 
