@@ -48,6 +48,15 @@ Thumbs.db
 /build
 */build
 
+##############################
+## IntelliJ
+##############################
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
 
 # Eclipse specific files/directories #
 ######################################
